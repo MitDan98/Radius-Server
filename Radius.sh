@@ -1,6 +1,5 @@
 #!/bin/bash
-#Author: Mititi Dan
-#Mail: danmititi@gmail.com
+#radiusfree
 sudo yum -y update
 sudo yum -y install freeradius freeradius-utils freeradius-mysql freeradius-perl 
 if [ $? -ne 0 ]; then 
