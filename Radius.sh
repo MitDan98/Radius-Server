@@ -10,12 +10,12 @@ else
 fi
 systemctl start radiusd.service
 if [ $? -ne 0 ]; then 
- echo" cannot been start"
+ echo" cannot been start radius"
  exit 1
 fi
 systemctl enable radiusd.service
 if [ $? -ne 0 ]; then 
- echo" cannot been enable"
+ echo" cannot been enable radius"
  exit 1
 fi
 systemctl status radiusd.service
