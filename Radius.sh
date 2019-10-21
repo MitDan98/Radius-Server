@@ -9,10 +9,26 @@ else
 	echo "radius has been installed."
 fi
 systemctl start radiusd.service
+if [ $? -ne 0 ]; then 
+ echo" cannot been start"
+ exit 1
+fi
 systemctl enable radiusd.service
+if [ $? -ne 0 ]; then 
+ echo" cannot been enable"
+ exit 1
+fi
 systemctl status radiusd.service
 systemctl enable firewalld
+if [ $? -ne 0 ]; then 
+ echo" cannot been enable firewalld"
+ exit 1
+fi
 systemctl start firewalld
+if [ $? -ne 0 ]; then 
+ echo" cannot been start firewalld"
+ exit 1
+fi
 firewall-cmd --state
 running
 firewall-cmd --add-service={http,https,radius} --permanent
