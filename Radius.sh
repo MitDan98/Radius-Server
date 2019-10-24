@@ -29,8 +29,6 @@ if [ $? -ne 0 ]; then
  echo" cannot been start firewalld"
  exit 1
 fi
-firewall-cmd --state
-running
 firewall-cmd --add-service={http,https,radius} --permanent
 firewall-cmd --reload
 firewall-cmd --get-default-zone
