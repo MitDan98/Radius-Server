@@ -21,7 +21,7 @@ fi
 systemctl status radiusd.service
 systemctl enable firewalld
 if [ $? -ne 0 ]; then 
- echo" cannot been enable firewalld"
+ echo "cannot been enable firewalld"
  exit 1
 fi
 systemctl start firewalld
