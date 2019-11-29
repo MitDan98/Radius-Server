@@ -30,8 +30,26 @@ if [ $? -ne 0 ]; then
  exit 1
 fi
 firewall-cmd --add-service={http,https,radius} --permanent
+if [ $? -ne 0] then ;
+ echo "Was add with succes"
+ exit 1
+else
+ echo "Succes"
+fi 
 firewall-cmd --reload
+if [ $? -ne 0] then ;
+ echo "Was reload with succes"
+ exit 1
+else
+ echo "Succes"
+fi 
 firewall-cmd --get-default --zone=public
+if [ $? -ne 0] then ;
+ echo "Was set with succes"
+ exit 1
+else
+ echo "Succes"
+fi
 firewall-cmd --list-services --zone=public
 dhcpv6-client http https radius ssh
 pkill radius
