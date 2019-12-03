@@ -30,19 +30,19 @@ if [ $? -ne 0 ]; then
  exit 1
 fi
 firewall-cmd --add-service={http,https,radius} --permanent
-if [ $? -ne 0] then ;
+if [ $? -ne 0]; then
  echo "Cannot add"
  exit 1
 else
  echo "Succes"
 fi 
 firewall-cmd --reload
-if [ $? -ne 0] then ;
+if [ $? -ne 0]; then 
  echo "Error"
  exit 1
 fi 
 firewall-cmd --get-default --zone=public
-if [ $? -ne 0] then ;
+if [ $? -ne 0]; then
  echo "error"
  exit 1
 else
