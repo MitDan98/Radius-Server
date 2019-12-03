@@ -57,14 +57,14 @@ if [ $? -ne 0 ]; then
 else
  echo "succes"
 fi
-firewall-cmd –-zone=public –-permanent –-add-port=1812/udp
+firewall-cmd --zone=public --permanent --add-port=1812/udp
 if [ $? -ne 0 ]; then 
  echo "cannot add this port"
  exit 1
 else
  echo "succes"
 fi
-firewall-cmd –-zone=public –-permanent –-add-port=1813/udp
+sudo firewall-cmd --zone=public --permanent --add-port=1813/udp
 if [ $? -ne 0 ]; then 
  echo "cannot add this port"
  exit 1
