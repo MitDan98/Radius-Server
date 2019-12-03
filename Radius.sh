@@ -30,19 +30,20 @@ if [ $? -ne 0 ]; then
  exit 1
 fi
 firewall-cmd --add-service={http,https,radius} --permanent
-if [ $? -ne 0]; then
+if [ $? -ne 0 ]; then
  echo "Cannot add"
  exit 1
+ 
 else
  echo "Succes"
 fi 
 firewall-cmd --reload
-if [ $? -ne 0]; then 
+if [ $? -ne 0 ]; then 
  echo "Error"
  exit 1
 fi 
 firewall-cmd --get-default --zone=public
-if [ $? -ne 0]; then
+if [ $? -ne 0 ]; then
  echo "error"
  exit 1
 else
@@ -50,42 +51,42 @@ else
 fi
 firewall-cmd --list-services --zone=public
 firewall-cmd –z-one=public –-add-port=1812/udp
-if [ $? -ne 0]; then 
+if [ $? -ne 0 ]; then 
  echo "cannot add this port"
  exit 1
 else
  echo "succes"
 fi
 firewall-cmd –-zone=public –-add-port=1813/udp
-if [ $? -ne 0]; then 
+if [ $? -ne 0 ]; then 
  echo "cannot add this port"
  exit 1
 else
  echo "succes"
 fi
 firewall-cmd –-zone=public –-permanent –-add-port=1812/udp
-if [ $? -ne 0]; then 
+if [ $? -ne 0 ]; then 
  echo "cannot add this port"
  exit 1
 else
  echo "succes"
 fi
 firewall-cmd –-zone=public –-permanent –-add-port=1813/udp
-if [ $? -ne 0]; then 
+if [ $? -ne 0 ]; then 
  echo "cannot add this port"
  exit 1
 else
  echo "succes"
 fi
 firewall-cmd –-zone=public –-add-service=radius
-if [ $? -ne 0]; then 
+if [ $? -ne 0 ]; then 
  echo "cannot add this service"
  exit 1
 else
  echo "succes"
 fi
 firewall-cmd –-zone=public –-permanent –-add-service=radius
-if [ $? -ne 0]; then 
+if [ $? -ne 0 ] ; then 
  echo "cannot add this service"
  exit 1
 else
