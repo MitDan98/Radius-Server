@@ -71,14 +71,14 @@ if [ $? -ne 0 ]; then
 else
  echo "succes"
 fi
-firewall-cmd –-zone=public –-add-service=radius
+sudo firewall-cmd --zone=public --add-service=radius
 if [ $? -ne 0 ]; then 
  echo "cannot add this service"
  exit 1
 else
  echo "succes"
 fi
-firewall-cmd –-zone=public –-permanent –-add-service=radius
+sudo firewall-cmd --zone=public --permanent --add-service=radius
 if [ $? -ne 0 ] ; then 
  echo "cannot add this service"
  exit 1
