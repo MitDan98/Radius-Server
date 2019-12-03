@@ -42,13 +42,6 @@ if [ $? -ne 0 ]; then
  echo "Error"
  exit 1
 fi 
-firewall-cmd --get-default --zone=public
-if [ $? -ne 0 ]; then
- echo "error"
- exit 1
-else
- echo "Succes"
-fi
 firewall-cmd --list-services --zone=public
 firewall-cmd –z-one=public –-add-port=1812/udp
 if [ $? -ne 0 ]; then 
