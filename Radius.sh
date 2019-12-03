@@ -49,47 +49,47 @@ else
  echo "Succes"
 fi
 firewall-cmd --list-services --zone=public
-firewall-cmd –zone=public –add-port=1812/udp
+firewall-cmd –z-one=public –-add-port=1812/udp
 if [ $? -ne 0]; then 
  echo "cannot add this port"
  exit 1
 else
  echo "succes"
 fi
-firewall-cmd –zone=public –add-port=1813/udp
+firewall-cmd –-zone=public –-add-port=1813/udp
 if [ $? -ne 0]; then 
  echo "cannot add this port"
  exit 1
 else
  echo "succes"
 fi
-firewall-cmd –zone=public –permanent –add-port=1812/udp
+firewall-cmd –-zone=public –-permanent –-add-port=1812/udp
 if [ $? -ne 0]; then 
  echo "cannot add this port"
  exit 1
 else
  echo "succes"
 fi
-firewall-cmd –zone=public –permanent –add-port=1813/udp
+firewall-cmd –-zone=public –-permanent –-add-port=1813/udp
 if [ $? -ne 0]; then 
  echo "cannot add this port"
  exit 1
 else
  echo "succes"
 fi
-firewall-cmd –zone=public –add-service=radius
+firewall-cmd –-zone=public –-add-service=radius
 if [ $? -ne 0]; then 
  echo "cannot add this service"
  exit 1
 else
  echo "succes"
 fi
-firewall-cmd –zone=public –permanent –add-service=radius
+firewall-cmd –-zone=public –-permanent –-add-service=radius
 if [ $? -ne 0]; then 
  echo "cannot add this service"
  exit 1
 else
  echo "succes"
 fi
-echo " go to etc/raddb after editing client.conf"
+echo "Before run command pkill radius and radiusd -X after  go to etc/raddb after editing client.conf"
  
