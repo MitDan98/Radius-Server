@@ -43,7 +43,7 @@ if [ $? -ne 0 ]; then
  exit 1
 fi 
 firewall-cmd --list-services --zone=public
-firewall-cmd –zone=public –-add-port=1812/udp
+firewall-cmd –-zone=public –-add-port=1812/udp
 if [ $? -ne 0 ]; then 
  echo "cannot add this port"
  exit 1
