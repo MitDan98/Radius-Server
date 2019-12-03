@@ -91,4 +91,5 @@ if [ $? -ne 0]; then
 else
  echo "succes"
 fi
+echo " go to etc/raddb after editing client.conf"
  
