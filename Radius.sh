@@ -87,10 +87,10 @@ else
 fi
 sudo pkill radius
 if [ $? -ne 0 ] ; then
-e cho "error"
+ echo "error"
  exit 1
 else 
  echo "succes"
 fi
-echo "Before go to etc/raddb after editing client.conf"
+echo "Before run command radiusd -X and exit go to etc/raddb after editing client.conf"
  
