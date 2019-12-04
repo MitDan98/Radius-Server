@@ -85,5 +85,20 @@ if [ $? -ne 0 ] ; then
 else
  echo "succes"
 fi
-echo "Before run command pkill radius and radiusd -X after  go to etc/raddb after editing client.conf"
+sudo pkill radius
+if [ $? -ne 0 ] ; then
+e cho "error"
+ exit 1
+else 
+ echo "succes"
+fi
+sudo radiusd -X
+if [ $? -ne 0 ] ; then
+ echo "error"
+ exit 1
+else 
+ echo "succes"
+fi
+exit 1
+echo "Before go to etc/raddb after editing client.conf"
  
