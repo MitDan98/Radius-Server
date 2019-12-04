@@ -92,13 +92,5 @@ e cho "error"
 else 
  echo "succes"
 fi
-sudo radiusd -X
-if [ $? -ne 0 ] ; then
- echo "error"
- exit 1
-else 
- echo "succes"
-fi
-exit 1
 echo "Before go to etc/raddb after editing client.conf"
  
