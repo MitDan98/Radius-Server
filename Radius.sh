@@ -79,14 +79,14 @@ else
  echo "succes"
 fi
 sudo firewall-cmd --zone=public --permanent --add-service=radius
-if [ $? -ne 0 ] ; then 
+if [ $? -ne 0 ]; then 
  echo "cannot add this service"
  exit 1
 else
  echo "succes"
 fi
 sudo pkill radius
-if [ $? -ne 0 ] ; then
+if [ $? -ne 0 ]; then
  echo "error"
  exit 1
 else 
