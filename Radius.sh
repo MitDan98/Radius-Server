@@ -31,7 +31,7 @@ if [ $? -ne 0 ]; then
 fi
 firewall-cmd --add-service={http,https,radius} --permanent
 if [ $? -ne 0 ]; then
- echo "Cannot add"
+ echo "Cannot been add"
  exit 1
  
 else
