@@ -2,12 +2,15 @@
 #radiusfree
 sudo yum -y update
 sudo yum -y install freeradius freeradius-utils freeradius-mysql freeradius-perl 
+##Install Freeradius
 if [ $? -ne 0 ]; then 
  echo "Cannot install radius Exiting..."
 	exit 1
 else
 	echo "radius has been installed."
 fi
+#
+#Start and enable Radius server
 systemctl start radiusd.service
 if [ $? -ne 0 ]; then 
  echo "cannot been start radius"
@@ -18,6 +21,8 @@ if [ $? -ne 0 ]; then
  echo "cannot been enable radius"
  exit 1
 fi
+#
+#Enable firewall 
 systemctl status radiusd.service
 systemctl enable firewalld
 if [ $? -ne 0 ]; then 
@@ -29,6 +34,9 @@ if [ $? -ne 0 ]; then
  echo "cannot been start firewalld"
  exit 1
 fi
+#
+#Add services
+#
 firewall-cmd --add-service={http,https,radius} --permanent
 if [ $? -ne 0 ]; then
  echo "Cannot been add"
@@ -41,7 +49,10 @@ firewall-cmd --reload
 if [ $? -ne 0 ]; then 
  echo "Error"
  exit 1
-fi 
+fi
+#
+#ADD PORT AND ZONE
+#
 firewall-cmd --list-services --zone=public
 sudo firewall-cmd --zone=public --add-port=1812/udp
 if [ $? -ne 0 ]; then 
@@ -85,6 +96,9 @@ if [ $? -ne 0 ]; then
 else
  echo "succes"
 fi
+#
+#START
+#
 sudo pkill radius
 if [ $? -ne 0 ]; then
  echo "error"
